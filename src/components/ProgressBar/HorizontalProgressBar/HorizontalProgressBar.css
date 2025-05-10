@@ -1,0 +1,17 @@
+:root {
+    --animate-horizontal-progress-bar: horizontal-progress-animations 3s ease-in-out;:
+}
+
+@keyframes horizontal-progress-animations {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+.animate-horizontal-progress-bar {
+    animation: var(--animate-horizontal-progress-bar);
+    animation-fill-mode: both;
+}
