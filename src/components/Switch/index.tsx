@@ -10,7 +10,7 @@ function Switch({ className, ...props }: SwitchProps) {
     <SwitchPrimitive.Root
       data-slot="switch"
       className={cn(
-        "peer data-[state=checked]:bg-success data-[state=unchecked]:bg-[var(--chips-bg)] focus-visible:border-ring focus-visible:ring-ring/50 dark:data-[state=unchecked]:bg-input/80 inline-flex h-[28px] w-[54px] shrink-0 items-center rounded-full border-2 border-[var(--muted-color)] data-[state=checked]:border-success shadow-xs transition-all outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50",
+        "peer data-[state=checked]:bg-success data-[state=unchecked]:bg-[var(--chips-bg)] focus-visible:border-ring focus-visible:ring-ring/50 dark:data-[state=unchecked]:bg-input/80 inline-flex h-[28px] w-[54px] shrink-0 items-center !rounded-full data-[state=unchecked]:!border-2 !border-[var(--muted-color)] data-[state=checked]:border-success shadow-xs transition-all outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50",
         className,
       )}
       {...props}

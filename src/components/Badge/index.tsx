@@ -5,7 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../utility/utils";
 
 const badgeVariants = cva(
-  "inline-flex items-center justify-center rounded-[50rem] border px-[14px] py-[8px] text-xs font-normal text-[var(--white)] border-transparent w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 bg-[var(--primary)] [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden",
+  "inline-flex items-center justify-center rounded-[50rem] border !px-[14px] !py-[8px] text-xs font-normal text-[var(--white)] border-transparent w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 bg-[var(--primary)] [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden",
   {
     variants: {
       variant: {
@@ -28,8 +28,8 @@ const badgeVariants = cva(
       },
       size: {
         md: "",
-        lg: "px-[18px] py-[10px] [&>svg]:size-[14px] text-sm",
-        sm: "px-[14px] py-[6px] [&>svg]:size-[10px] text-[11px]",
+        lg: "!px-[18px] !py-[10px] [&>svg]:size-[14px] text-sm",
+        sm: "!px-[14px] !py-[6px] [&>svg]:size-[10px] text-[11px]",
       },
       square: {
         false: "",
@@ -44,14 +44,38 @@ const badgeVariants = cva(
   },
 );
 
+type badgetypes = {
+  className?: string;
+  variant?:
+    | "primary"
+    | "secondary"
+    | "success"
+    | "teal"
+    | "green"
+    | "info"
+    | "yellow"
+    | "warning"
+    | "purple"
+    | "violate"
+    | "blue"
+    | "skyblue"
+    | "brown"
+    | "tertiary"
+    | "light"
+    | "orange";
+  size?: "md" | "lg" | "sm";
+  square?: boolean;
+};
+
 function Badge({
   className,
-  variant,
-  size,
-  square,
+  variant = "primary",
+  size = "md",
+  square = false,
   asChild = false,
   ...props
 }: React.ComponentProps<"span"> &
+  badgetypes &
   VariantProps<typeof badgeVariants> & { asChild?: boolean }) {
   const Comp = asChild ? Slot : "span";
 

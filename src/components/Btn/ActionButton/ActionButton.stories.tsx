@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import ActionButton from "./index";
-import { MoreHorizontal } from "react-feather";
+import { Sliders, ChevronDown } from "react-feather";
 
 const meta: Meta<typeof ActionButton> = {
   title: "Mycomponent/Btn/ActionButton",
@@ -15,6 +15,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    children: <MoreHorizontal />,
+    children: [<Sliders />, "Actions", <ChevronDown />],
   },
 };

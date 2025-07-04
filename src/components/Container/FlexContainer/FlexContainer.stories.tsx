@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import FlexContainer from "./index";
-import SvgLogo from "../../SvgLogo";
+import { Avatar, AvatarFallback } from "../../Avatar";
 import { KroneIcon } from "../../../Assets/custom-svg";
 import { User } from "react-feather";
 import Text from "../../Typography/Text";
@@ -18,12 +18,11 @@ type Story = StoryObj<typeof meta>;
 export const Example1: Story = {
   args: {
     children: [
-      <SvgLogo variant="violate">
-        <KroneIcon />
-      </SvgLogo>,
-      <SvgLogo variant="danger">
-        <KroneIcon />
-      </SvgLogo>,
+      <Avatar shape="square" size="s60px">
+        <AvatarFallback variant="violate">
+          <KroneIcon />
+        </AvatarFallback>
+      </Avatar>,
       <div>
         <Text as="p" variant="success" weight="medium" size="lg">
           This is text nr. 1

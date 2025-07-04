@@ -1,10 +1,9 @@
 import { Meta, StoryObj } from "@storybook/react";
-import SvgLogo from ".";
-import { KroneIcon } from "../../Assets/custom-svg";
+import Caption from "./index";
 
 const meta: Meta = {
-  title: "Mycomponent/SvgLogo",
-  component: SvgLogo,
+  title: "Mycomponent/Typography/Caption",
+  component: Caption,
   tags: ["autodocs"],
   parameters: {
     layout: "centered",
@@ -15,7 +14,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    children: <KroneIcon />,
-    variant: "yellow",
+    children: ["Account"],
   },
 };

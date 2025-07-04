@@ -6,7 +6,7 @@ const flexContainerPropsVariants = cva("flex items-center w-full", {
   variants: {
     flexDirection: {
       flexRow: "",
-      flexCol: "flex-col",
+      flexCol: "flex-col items-start",
     },
     flexWrap: {
       false: "",
@@ -21,7 +21,7 @@ const flexContainerPropsVariants = cva("flex items-center w-full", {
 
 type FlexContainerProps = {
   children: ReactNode;
-  flexDirection: "flexRow" | "flexCol";
+  flexDirection?: "flexRow" | "flexCol";
   className?: string;
   flexWrap?: boolean;
 } & VariantProps<typeof flexContainerPropsVariants>;

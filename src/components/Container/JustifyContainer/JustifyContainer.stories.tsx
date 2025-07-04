@@ -19,5 +19,6 @@ export const Default: Story = {
       </>
     ),
     justify: "between",
+    className: "!mb-5",
   },
 };

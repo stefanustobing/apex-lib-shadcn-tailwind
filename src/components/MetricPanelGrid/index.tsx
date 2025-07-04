@@ -18,7 +18,7 @@ const MetricPanelGrid: FunctionComponent<MetricPanelGridProps> = ({
       {contents.map((content, i) => (
         <div
           key={i}
-          className={`w-1/2 md:w-1/3 py-[calc(0.75rem-2px)] ${generateClassName(i, total, col)}`}
+          className={`w-1/2 md:w-1/3 !py-[calc(0.75rem-2px)] ${generateClassName(i, total, col)}`}
         >
           {content}
         </div>

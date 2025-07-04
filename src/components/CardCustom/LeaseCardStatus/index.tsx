@@ -20,16 +20,17 @@ const leaseCardStatusVariant = cva("shadow-none", {
 type LeaseCardStatusProps = {
   className?: string;
   children: ReactNode;
+  variant?: "burlywood" | "yellow" | "purple" | "green";
 } & VariantProps<typeof leaseCardStatusVariant>;
 
 const LeaseCardStatus = ({
   className,
   children,
-  variant,
+  variant = "burlywood",
 }: LeaseCardStatusProps): ReactElement => {
   return (
     <Card className={cn(leaseCardStatusVariant({ variant }))}>
-      <CardContent className={cn("p-[20px]", className)}>
+      <CardContent className={cn("!p-[20px]", className)}>
         {children}
       </CardContent>
     </Card>

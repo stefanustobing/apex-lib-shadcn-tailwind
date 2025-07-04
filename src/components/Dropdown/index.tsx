@@ -1,8 +1,10 @@
 import * as React from "react";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react";
+import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "../../utility/utils";
+import { XCircle } from "react-feather";
 
 function DropdownMenu({
   ...props
@@ -18,16 +20,18 @@ function DropdownMenuPortal({
   );
 }
 
-function DropdownMenuTrigger({
-  ...props
-}: React.ComponentProps<typeof DropdownMenuPrimitive.Trigger>) {
+const DropdownMenuTrigger = React.forwardRef<
+  HTMLButtonElement, // Ref type
+  React.ComponentProps<typeof DropdownMenuPrimitive.Trigger> // Props type
+>(({ ...props }, ref) => {
   return (
     <DropdownMenuPrimitive.Trigger
       data-slot="dropdown-menu-trigger"
+      ref={ref} // Forward the ref correctly
       {...props}
     />
   );
-}
+});
 
 function DropdownMenuContent({
   className,
@@ -40,7 +44,7 @@ function DropdownMenuContent({
         data-slot="dropdown-menu-content"
         sideOffset={sideOffset}
         className={cn(
-          "bg-[var(--default-card-bg)] text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 max-h-(--radix-dropdown-menu-content-available-height) min-w-[8rem] origin-(--radix-dropdown-menu-content-transform-origin) overflow-x-hidden overflow-y-auto border-0 my-2 px-0 py-2 rounded-[0.334rem] shadow-[0_5px_15px_rgba(0,0,0,0.35)] ",
+          "bg-[var(--default-card-bg)] text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 max-h-(--radix-dropdown-menu-content-available-height) min-w-[8rem] origin-(--radix-dropdown-menu-content-transform-origin) overflow-x-hidden overflow-y-auto border-0 !my-2 !px-0 !py-2 rounded-[0.334rem] shadow-[0_5px_15px_rgba(0,0,0,0.35)] ",
           className,
         )}
         {...props}
@@ -57,7 +61,7 @@ function DropdownMenuGroup({
   );
 }
 
-function DropdownMenuItem({
+/*function DropdownMenuItem({
   className,
   inset,
   variant = "default",
@@ -74,6 +78,106 @@ function DropdownMenuItem({
       className={cn(
         "focus:bg-accent focus:text-accent-foreground data-[variant=destructive]:text-destructive data-[variant=destructive]:focus:bg-destructive/10 dark:data-[variant=destructive]:focus:bg-destructive/20 data-[variant=destructive]:focus:text-destructive data-[variant=destructive]:*:[svg]:!text-destructive [&_svg:not([class*='text-'])]:text-muted-foreground relative flex cursor-default items-center gap-2 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[inset]:pl-8 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         className,
+      )}
+      {...props}
+    />
+  );
+}*/
+
+const dropdownMenuItemVariants = cva(
+  "focus:bg-accent focus:text-accent-foreground [&_svg:not([class*='text-'])]:!text-[var(--sub-primary-color)] relative flex cursor-default items-center gap-2 outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-5 cursor-pointer !px-[30px] !py-[12px] rounded-none w-full font-poppins [&_*]:!text-base text-[var(--gray)] hover:!text-[var(--sub-primary-color)] hover:bg-[var(--base-color)]",
+  {
+    variants: {
+      inset: {
+        true: "pl-8",
+        false: "pl-0",
+      },
+      variant: {
+        default: "",
+        destructive:
+          "data-[variant=destructive]:text-destructive data-[variant=destructive]:focus:bg-destructive/10 dark:data-[variant=destructive]:focus:bg-destructive/20 data-[variant=destructive]:focus:text-destructive data-[variant=destructive]:*:[svg]:!text-destructive",
+        selected:
+          "flex items-center justify-between bg-[var(--base-color)] text-[var(--sub-primary-color)]",
+      },
+    },
+    defaultVariants: {
+      inset: false,
+      variant: "default",
+    },
+  },
+);
+
+function DropdownMenuItem({
+  children,
+  className,
+  inset,
+  variant = "default",
+  onDeselect,
+  ...props
+}: React.ComponentProps<typeof DropdownMenuPrimitive.Item> &
+  VariantProps<typeof dropdownMenuItemVariants> & {
+    inset?: boolean;
+    variant?: "default" | "destructive" | "selected";
+  } & { onDeselect?: () => void }) {
+  return (
+    <DropdownMenuPrimitive.Item
+      data-slot="dropdown-menu-item"
+      data-inset={inset}
+      data-variant={variant}
+      className={cn(dropdownMenuItemVariants({ inset, variant, className }))}
+      {...props}
+    >
+      {children}
+      {variant === "selected" && (
+        <span
+          className="inline-flex"
+          onClick={(e) => {
+            e.stopPropagation();
+            onDeselect?.();
+          }}
+        >
+          <XCircle />
+        </span>
+      )}
+    </DropdownMenuPrimitive.Item>
+  );
+}
+
+const dropdownMenuActionItemVariants = cva(
+  "outline-hidden cursor-pointer !px-[calc(2rem-2px)] !py-3 rounded-none w-full hover:bg-[var(--sub-primary-color)] text-[var(--gray)] hover:text-[var(--base-color)] font-poppins font-normal",
+  {
+    variants: {
+      inset: {
+        true: "pl-8",
+        false: "pl-0",
+      },
+      variant: {
+        default: "",
+        selected: "bg-[var(--sub-primary-color)] text-[var(--base-color)]",
+      },
+    },
+    defaultVariants: {
+      inset: false,
+      variant: "default",
+    },
+  },
+);
+function DropdownMenuActionItem({
+  className,
+  inset,
+  variant = "default",
+  ...props
+}: React.ComponentProps<typeof DropdownMenuPrimitive.Item> &
+  VariantProps<typeof dropdownMenuActionItemVariants> & {
+    variant?: "default" | "selected";
+  }) {
+  return (
+    <DropdownMenuPrimitive.Item
+      data-slot="dropdown-menu-action-item"
+      data-inset={inset}
+      data-variant={variant}
+      className={cn(
+        dropdownMenuActionItemVariants({ inset, variant, className }),
       )}
       {...props}
     />
@@ -247,6 +351,7 @@ export {
   DropdownMenuGroup,
   DropdownMenuLabel,
   DropdownMenuItem,
+  DropdownMenuActionItem,
   DropdownMenuCheckboxItem,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,

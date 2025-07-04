@@ -23,13 +23,13 @@ type ParagraphProps = {
     | "teal"
     | "skyblue"
     | "brown";
-  weight?: "medium" | "semibold";
+  weight?: "light" | "normal" | "medium" | "semibold";
 };
 
 const Paragraph = ({
   children,
   variant = "gray",
-  weight = "medium",
+  weight = "normal",
   className,
 }: ParagraphProps): ReactElement => {
   return (

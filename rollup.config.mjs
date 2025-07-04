@@ -33,7 +33,7 @@ export default [
       peerDepsExternal(),
       resolve({
         extensions: [".js", ".jsx", ".ts", ".tsx"],
-        skip: ["react", "react-dom"],
+        /*skip: ["react", "react-dom"],*/
       }),
       commonjs(),
       typescript({
@@ -50,9 +50,17 @@ export default [
       postcss({
         extract: "styless.css",
         minimize: true,
+        inject: false,
+        modules: false,
       }),
     ],
-    external: ["react", "react-dom", "react/jsx-runtime"],
+    external: [
+      "react",
+      "react-dom",
+      "@radix-ui/react-dropdown-menu",
+      "clsx",
+      "tailwind-merge",
+    ],
   },
   {
     input: "src/index.ts",

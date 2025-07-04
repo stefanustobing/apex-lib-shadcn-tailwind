@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import FilterButton from "./index";
-import { User } from "react-feather";
+import { User, ChevronDown } from "react-feather";
 
 const meta: Meta<typeof FilterButton> = {
   title: "Mycomponent/Btn/FilterButton",
@@ -15,11 +15,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    children: (
-      <>
-        <User /> Manager
-      </>
-    ),
-    variant: "primary",
+    children: [<User />, "Manager", <ChevronDown />],
   },
 };

@@ -1,9 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
 import ActionBtnDropdown from "./index";
 import ActionButton from "../../Btn/ActionButton";
-import { MoreHorizontal } from "react-feather";
-import { DropdownMenuItem } from "../../Dropdown";
-import ActionBtnItem from "../../Dropdown/ActionBtnItem";
+import { Sliders, ChevronDown } from "react-feather";
 
 const meta: Meta = {
   title: "Mycomponent/DropdownCustom/ActionBtnDropdown",
@@ -18,21 +16,18 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    drpdownTrigger: (
+    trigger: (
       <ActionButton>
-        <MoreHorizontal />
+        <Sliders /> Actions <ChevronDown />
       </ActionButton>
     ),
-    drpdownItems: [
-      <DropdownMenuItem>
-        <ActionBtnItem>Add User</ActionBtnItem>
-      </DropdownMenuItem>,
-      <DropdownMenuItem>
-        <ActionBtnItem>Edit User</ActionBtnItem>
-      </DropdownMenuItem>,
-      <DropdownMenuItem>
-        <ActionBtnItem>Delete User</ActionBtnItem>
-      </DropdownMenuItem>,
+    items: [
+      { name: "Add User", onClick: () => console.log("Add User clicked") },
+      { name: "Edit User", onClick: () => console.log("Edit User clicked") },
+      {
+        name: "Delete User",
+        onClick: () => console.log("Delete User clicked"),
+      },
     ],
   },
 };

@@ -21,7 +21,7 @@ const ChkboxAndLabel = forwardRef<HTMLDivElement, ChkboxAndLabelProps>(
           id={id}
           checked={checked}
           onCheckedChange={onCheckedChange}
-          className="mr-[10px]"
+          className="!mr-[10px]"
           disabled={disabled}
         />
         <Label className="[&>svg]:size-4 gap-1" htmlFor={id}>

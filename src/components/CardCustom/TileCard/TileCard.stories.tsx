@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
 import TileCard from ".";
 import FlexContainer from "../../Container/FlexContainer";
-import SvgLogo from "../../SvgLogo";
+import SvgLogo from "../../FrameSquared";
 import { Home } from "react-feather";
 import DollarSign from "../../../Assets/custom-svg/DollarSign";
 import Text from "../../Typography/Text";

@@ -30,17 +30,17 @@ export const Default: Story = {
       {
         label: "Due",
         data: [1000, 2000, 1500, 3000, 4500, 1500, 2000],
-        backgroundColor: "warning",
+        backgroundColor: "#db700f",
       },
       {
         label: "Payment",
         data: [400, 1500, 1500, 2500, 4000, 1000, 2000],
-        backgroundColor: "success",
+        backgroundColor: "#219b6f",
       },
       {
         label: "Lost",
         data: [0, 0, 0, 0, 0, 0, 200],
-        backgroundColor: "gray",
+        backgroundColor: "#74777b",
       },
     ],
   },

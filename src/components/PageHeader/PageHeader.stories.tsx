@@ -2,9 +2,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import PageHeader from ".";
 import Headline from "../Typography/Headline";
 import ActionBtnDropdown from "../DropdownCustom/ActionBtnDropdown";
-import { DropdownMenuItem } from "../Dropdown";
-import ActionBtnItem from "../Dropdown/ActionBtnItem";
-import { Button } from "../Btn/Button";
+import FilterButton from "../Btn/FilterButton";
 import { User, Briefcase, ChevronDown, GitBranch } from "react-feather";
 
 const meta: Meta = {
@@ -30,45 +28,92 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
+  parameters: {
+    docs: {
+      source: {
+        code: `
+            <Page 
+                header={
+                    <PageHeader 
+                        leftContent={<Headline>Dashboard</Headline>} 
+                        rightContent={
+                            <>
+                                <ActionBtnDropdown 
+                                    items={
+                                        [
+                                            {
+                                                name: 'Add User', 
+                                                onClick: () => {}
+                                            }, 
+                                            {
+                                                name: 'Edit User'
+                                            }
+                                        ]
+                                    } 
+                                    trigger={
+                                        <Button variant="white">
+                                            <GitBranch />{' '}Branch{' '}<ChevronDown />
+                                        </Button>
+                                    }
+                                />
+                                <ActionBtnDropdown 
+                                    items={[
+                                        {name: 'Add User'}
+                                    ]} 
+                                    trigger={
+                                        <Button variant="white">
+                                            <User />{' '}Manager{' '}<ChevronDown />
+                                        </Button>}
+                                />
+                                <ActionBtnDropdown 
+                                    items={[
+                                        {name: 'Add User'}
+                                    ]} 
+                                    trigger={
+                                        <Button variant="white">
+                                            <Briefcase />{' '}Account{' '}<ChevronDown />
+                                        </Button>
+                                    }
+                                />
+                            </>
+                        }
+                    />
+                }
+            />
+                Content of the page
+            </Page>
+                `,
+        format: true,
+      },
+    },
+  },
   args: {
     leftContent: <Headline>Dashboard</Headline>,
     rightContent: (
       <>
         <ActionBtnDropdown
-          drpdownTrigger={
-            <Button variant="white">
+          trigger={
+            <FilterButton>
               <GitBranch /> Branch <ChevronDown />
-            </Button>
+            </FilterButton>
           }
-          drpdownItems={[
-            <DropdownMenuItem>
-              <ActionBtnItem>Add User</ActionBtnItem>
-            </DropdownMenuItem>,
-          ]}
+          items={[{ name: "Add User" }, { name: "Edit User" }]}
         />
         <ActionBtnDropdown
-          drpdownTrigger={
-            <Button variant="white">
+          trigger={
+            <FilterButton>
               <User /> Manager <ChevronDown />
-            </Button>
+            </FilterButton>
           }
-          drpdownItems={[
-            <DropdownMenuItem>
-              <ActionBtnItem>Add User</ActionBtnItem>
-            </DropdownMenuItem>,
-          ]}
+          items={[{ name: "Add User" }]}
         />
         <ActionBtnDropdown
-          drpdownTrigger={
-            <Button variant="white">
+          trigger={
+            <FilterButton>
               <Briefcase /> Account <ChevronDown />
-            </Button>
+            </FilterButton>
           }
-          drpdownItems={[
-            <DropdownMenuItem>
-              <ActionBtnItem>Add User</ActionBtnItem>
-            </DropdownMenuItem>,
-          ]}
+          items={[{ name: "Add User" }]}
         />
       </>
     ),

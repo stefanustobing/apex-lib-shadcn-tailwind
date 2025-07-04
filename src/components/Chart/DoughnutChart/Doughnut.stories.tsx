@@ -5,7 +5,7 @@ const meta: Meta = {
   title: "Mycomponent/Chart/DoughnutChart",
   component: DoughnutChart,
   tags: ["autodocs"],
-  decorators: [
+  /*decorators: [
     (Story) => (
       <div
         style={{
@@ -18,7 +18,7 @@ const meta: Meta = {
         <Story />
       </div>
     ),
-  ],
+  ],*/
 };
 export default meta;
 type Story = StoryObj<typeof meta>;

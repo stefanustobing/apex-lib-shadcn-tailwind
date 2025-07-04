@@ -157,7 +157,7 @@ export default function SearchFilter({
                 aria-selected={isSelected ? "true" : "false"}
                 aria-current={isFocused ? "true" : "false"}
                 data-selected={isSelected ? "true" : "false"}
-                className={`px-[30px] py-[12px] cursor-pointer ${isFocused ? "bg-[var(--base-color)] [&>*]:text-[var(--sub-primary-color)]" : ""} ${isSelected ? "bg-[var(--base-color)] [&>*]:text-[var(--sub-primary-color)]" : ""} flex justify-between items-center font-poppins`}
+                className={`!px-[30px] !py-[12px] cursor-pointer ${isFocused ? "bg-[var(--base-color)] [&>*]:text-[var(--sub-primary-color)]" : ""} ${isSelected ? "bg-[var(--base-color)] [&>*]:text-[var(--sub-primary-color)]" : ""} flex justify-between items-center font-poppins`}
                 onClick={() => handleItemClick(item, index)}
                 onMouseEnter={() => handleItemMouseEnter(index)}
                 onMouseLeave={handleItemMouseLeave}

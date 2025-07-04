@@ -1,5 +1,5 @@
 import { ReactElement, ReactNode } from "react";
-import ListPoint from "../../ListPoint";
+/*import ListPoint from "../../ListPoint";*/
 
 import {
   Chart as ChartJS,
@@ -11,7 +11,7 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
-import { getCSSVar } from "../../../utility/utils";
+/*import { getCSSVar } from "../../../utility/utils";*/
 import FlexContainer from "../../Container/FlexContainer";
 
 ChartJS.register(
@@ -42,7 +42,7 @@ export const options = {
   },
 };
 
-type backgroundColor =
+/*type backgroundColor =
   | "primary"
   | "success"
   | "danger"
@@ -58,12 +58,12 @@ type backgroundColor =
   | "blue"
   | "cyan"
   | "skyblue"
-  | "brown";
+  | "brown";*/
 
 type dataSet = {
   label: string;
   data: number[];
-  backgroundColor: backgroundColor;
+  backgroundColor: string;
 };
 
 type stackedBarChartProps = {
@@ -80,7 +80,7 @@ const StackedBarChart = ({
     datasets: chartData.map((data) => ({
       label: data.label,
       data: data.data,
-      backgroundColor: getCSSVar(`--${data.backgroundColor}`),
+      backgroundColor: data.backgroundColor,
     })),
   };
   console.log(chartProperties);
@@ -91,13 +91,13 @@ const StackedBarChart = ({
         data={chartProperties}
         className="!w-full !h-full"
       />
-      <FlexContainer flexDirection="flexRow" className="justify-center gap-3">
+      {/*<FlexContainer flexDirection="flexRow" className="justify-center gap-3">
         {chartData.map((data) => (
           <ListPoint variant={data.backgroundColor} className="w-auto">
             {data.label}
           </ListPoint>
         ))}
-      </FlexContainer>
+      </FlexContainer>*/}
     </FlexContainer>
   );
 };

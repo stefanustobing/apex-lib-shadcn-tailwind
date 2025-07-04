@@ -14,7 +14,7 @@ export const Default: Story = {
   args: {
     children: (
       <>
-        <User color="var(--white)" />
+        <User />
         test
       </>
     ),

@@ -17,19 +17,19 @@ const textVariants = cva("font-poppins flex items-center gap-1", {
       warning: "text-warning",
       danger: "text-danger",
       gray: "text-gray",
-      yellow: "text-[var(--yellow)]",
-      green: "text-[var(--green)]",
-      purple: "text-[var(--purple)]",
+      yellow: "!text-[var(--yellow)]",
+      green: "!text-[var(--green)]",
+      purple: "!text-[var(--purple)]",
       secondary: "text-secondary",
-      violate: "text-[var(--violate)]",
+      violate: "!text-[var(--violate)]",
       orange: "text-orange",
       info: "text-info",
-      tertiary: "text-[var(--tertiary)]",
-      blue: "text-[var(--blue)]",
-      cyan: "text-[var(--cyan)]",
-      teal: "text-[var(--teal)]",
-      skyblue: "text-[var(--skyblue)]",
-      brown: "text-[var(--brown)]",
+      tertiary: "!text-[var(--tertiary)]",
+      blue: "!text-[var(--blue)]",
+      cyan: "!text-[var(--cyan)]",
+      teal: "!text-[var(--teal)]",
+      skyblue: "!text-[var(--skyblue)]",
+      brown: "!text-[var(--brown)]",
     },
     weight: {
       thin: "!font-thin",
@@ -43,19 +43,19 @@ const textVariants = cva("font-poppins flex items-center gap-1", {
       black: "!font-black",
     },
     size: {
-      xs: "!text-xs",
-      sm: "text-sm",
-      base: "!text-base",
-      lg: "!text-lg",
-      xl: "!text-xl",
-      "2xl": "!text-2xl",
-      "3xl": "!text-3xl",
-      "4xl": "!text-4xl",
-      "5xl": "!text-5xl",
-      "6xl": "!text-6xl",
-      "7xl": "!text-7xl",
-      "8xl": "!text-8xl",
-      "9xl": "!text-9xl",
+      xs: "!text-[12px]",
+      sm: "text-[14px]",
+      base: "!text-[16px]",
+      lg: "!text-[18px]",
+      xl: "!text-[20px]",
+      "2xl": "!text-[24px]",
+      "3xl": "!text-[30px]",
+      "4xl": "!text-[46px]",
+      "5xl": "!text-[48px]",
+      "6xl": "!text-[60px]",
+      "7xl": "!text-[72px]",
+      "8xl": "!text-[96px]",
+      "9xl": "!text-[128px]",
     },
   },
   defaultVariants: {
@@ -70,15 +70,59 @@ type TextProps<T extends keyof JSX.IntrinsicElements> = ComponentProps<T> &
     as: T;
     children: ReactNode;
     className?: string;
+    variant?:
+      | "default"
+      | "primary"
+      | "success"
+      | "warning"
+      | "danger"
+      | "gray"
+      | "yellow"
+      | "green"
+      | "purple"
+      | "secondary"
+      | "violate"
+      | "orange"
+      | "info"
+      | "tertiary"
+      | "blue"
+      | "cyan"
+      | "teal"
+      | "skyblue"
+      | "brown";
+    size?:
+      | "xs"
+      | "sm"
+      | "base"
+      | "lg"
+      | "xl"
+      | "2xl"
+      | "3xl"
+      | "4xl"
+      | "5xl"
+      | "6xl"
+      | "7xl"
+      | "8xl"
+      | "9xl";
+    weight?:
+      | "thin"
+      | "extralight"
+      | "light"
+      | "normal"
+      | "medium"
+      | "semibold"
+      | "bold"
+      | "extrabold"
+      | "black";
   };
 
 const Text = <T extends keyof JSX.IntrinsicElements>({
   as,
   children,
   className,
-  variant,
-  weight,
-  size,
+  variant = "default",
+  weight = "normal",
+  size = "base",
   ...props
 }: TextProps<T>): ReactElement => {
   return createElement(

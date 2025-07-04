@@ -212,7 +212,7 @@ const SearchFilterInput = React.forwardRef<
         aria-autocomplete="list"
         aria-controls="search-listbox"
         className={cn(
-          "w-full focus-visible:ring-0 border-none shadow-none border-gray-200 rounded-none pl-[2.2rem] py-2 pr-[1rem] text-[var(--gray)] placeholder:text-[var(--mute-color)] md:text-base",
+          "w-full focus-visible:ring-0 border-none shadow-none border-gray-200 rounded-none !pl-[2.2rem] !py-2 !pr-[1rem] text-[var(--gray)] placeholder:text-[var(--mute-color)] md:text-base",
           className,
         )}
         {...props}

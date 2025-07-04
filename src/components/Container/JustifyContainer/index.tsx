@@ -8,7 +8,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../../utility/utils";
 
 const justifyContainerVariants = cva(
-  "flex flex-wrap gap-2 items-center bg-transparent",
+  "flex gap-2 items-center bg-transparent w-full",
   {
     variants: {
       justify: {
@@ -17,15 +17,9 @@ const justifyContainerVariants = cva(
         center: "justify-center",
         between: "justify-between",
       },
-      padding: {
-        p_20: "p-[20px]",
-        p_30: "p-[30px]",
-        py_1_px_2: "py-[1.337rem] px-[2.005rem]",
-      },
     },
     defaultVariants: {
       justify: "end",
-      padding: "py_1_px_2",
     },
   },
 );

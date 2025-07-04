@@ -10,7 +10,7 @@ type PageProps = {
 const Page = ({ header, children }: PageProps): ReactElement => {
   return (
     <FlexContainer flexDirection="flexCol">
-      <div className="mb-5 w-full">{header}</div>
+      <div className="!mb-[1.337rem] w-full">{header}</div>
       <div className="w-full">{children}</div>
     </FlexContainer>
   );

@@ -16,15 +16,15 @@ export const generateClassName = (
 
     // Apply "border-b border-r" for first and second items in each row (except last row)
     if ([1, 2].includes((i % cols) + 1) && currentRow < rows)
-      return "border-b border-r border-[var(--default-border-color)]";
+      return "!border-b !border-r !border-[var(--default-border-color)]";
 
     // Apply only "border-b" for every third item in a row (except last row)
     if ((i % cols) + 1 === 3 && currentRow < rows)
-      return "border-b border-[var(--default-border-color)]";
+      return "!border-b !border-[var(--default-border-color)]";
 
     // Apply only "border-r" for first two items in last row
     if ([1, 2].includes((i % cols) + 1) && currentRow === rows)
-      return "border-r border-[var(--default-border-color)]";
+      return "!border-r !border-[var(--default-border-color)]";
 
     return "";
   }
@@ -34,15 +34,15 @@ export const generateClassName = (
 
     // Apply "border-b border-r" for first item in a row (except last row)
     if (i % 2 === 0 && currentRow < rows)
-      return "border-b border-r border-[var(--default-border-color)]";
+      return "!border-b !border-r !border-[var(--default-border-color)]";
 
     // Apply only "border-b" for second item in a row (except last row)
     if (i % 2 === 1 && currentRow < rows)
-      return "border-b border-[var(--default-border-color)]";
+      return "!border-b !border-[var(--default-border-color)]";
 
     // Apply only "border-r" for first item in last row
     if (i % 2 === 0 && currentRow === rows)
-      return "border-r border-[var(--default-border-color)]";
+      return "!border-r !border-[var(--default-border-color)]";
 
     return "";
   }

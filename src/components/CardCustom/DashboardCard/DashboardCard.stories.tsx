@@ -11,7 +11,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    header: "This is the header content",
+    titleLeft: <div>Title on the left</div>,
+    titleRight: <div>Title on the Right</div>,
     children: [
       <div>this is content 1</div>,
       <div>this is content 2</div>,

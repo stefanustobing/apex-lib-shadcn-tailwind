@@ -49,30 +49,33 @@ const DoughnutChart = ({
   };
 
   return (
-    <div className="grid grid-cols-1 xl:grid-cols-2">
-      <Doughnut
-        data={chartProperties}
-        options={{
-          plugins: {
-            legend: {
-              display: false,
-            },
-            tooltip: {
-              callbacks: {
-                label: (tooltipItem) => {
-                  return `${tooltipItem.label}: ${tooltipItem.raw}`;
+    <div className="flex flex-row flex-wrap ">
+      <div className="w-full 2xl:basis-1/2 !px-[calc(1.5rem*0.5)] !mt-[1.5rem]">
+        <Doughnut
+          data={chartProperties}
+          options={{
+            plugins: {
+              legend: {
+                display: false,
+              },
+              tooltip: {
+                callbacks: {
+                  label: (tooltipItem) => {
+                    return `${tooltipItem.label}: ${tooltipItem.raw}`;
+                  },
+                  title: () => "",
                 },
-                title: () => "",
               },
             },
-          },
-        }}
-        className="!w-full !h-full mt-4 px-3"
-      />
-      <div className="mt-4 px-3 flex flex-col justify-center">
+          }}
+          className="!w-full !h-full"
+        />
+      </div>
+      <div className="w-full 2xl:basis-1/2 flex flex-col justify-center !px-[calc(1.5rem*0.5)] !mt-[1.5rem]">
         {labels.map((label, index) => (
           <div
-            className={`py-2 flex items-center gap-2 text-sm font-poppins font-light`}
+            key={index}
+            className={`!py-2 flex items-center gap-2 text-sm font-poppins font-light`}
             style={{ color: `var(--${backgroundColors[index]})` }}
           >
             <BulletPoint variant={backgroundColors[index]} />

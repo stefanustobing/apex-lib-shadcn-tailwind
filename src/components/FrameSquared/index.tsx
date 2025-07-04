@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "../../utility/utils";
 
-const svgLogoVariants = cva(
+const frameSquaredVariants = cva(
   "h-[4rem] w-[4rem] rounded-[var(--default-radius)] text-[var(--white)] flex items-center justify-center [&>svg]:w-[24px] [&>svg]:h-[24px]",
   {
     variants: {
@@ -25,23 +25,23 @@ const svgLogoVariants = cva(
   },
 );
 
-type SVGLogoProps = {
+type FrameSquaredProps = {
   children: ReactNode;
   className?: string;
-} & VariantProps<typeof svgLogoVariants>;
+} & VariantProps<typeof frameSquaredVariants>;
 
-const SvgLogo = ({
+const FrameSquared = ({
   children,
   className,
   variant,
-}: SVGLogoProps): ReactElement => {
+}: FrameSquaredProps): ReactElement => {
   return (
     <div
       data-slot="svg-logo"
-      className={cn(svgLogoVariants({ variant, className }))}
+      className={cn(frameSquaredVariants({ variant, className }))}
     >
       {children}
     </div>
   );
 };
-export default SvgLogo;
+export default FrameSquared;

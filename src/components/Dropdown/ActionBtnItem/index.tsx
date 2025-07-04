@@ -7,7 +7,7 @@ const ActionBtnItem: FunctionComponent<ComponentProps<"div">> = ({
   return (
     <div
       role="button"
-      className="cursor-pointer px-[calc(2rem-2px)] py-3 rounded-none w-full hover:bg-[var(--sub-primary-color)] text-[var(--gray)] font-poppins font-normal "
+      className="cursor-pointer !px-[calc(2rem-2px)] !py-3 rounded-none w-full hover:bg-[var(--sub-primary-color)] text-[var(--gray)] hover:text-[var(--base-color)] font-poppins font-normal "
       {...props}
     >
       {children}
