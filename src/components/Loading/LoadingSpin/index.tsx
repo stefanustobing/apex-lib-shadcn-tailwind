@@ -1,5 +1,6 @@
-import { ReactElement } from "react";
 import { cva, VariantProps } from "class-variance-authority";
+import { ReactElement } from "react";
+
 import { cn } from "../../../utility/utils";
 
 const spinnerVariants = cva("", {

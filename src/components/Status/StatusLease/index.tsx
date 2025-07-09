@@ -1,5 +1,6 @@
-import { ReactElement, ReactNode } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
+import { ReactElement, ReactNode } from "react";
+
 import { cn } from "../../../utility/utils";
 import Headline from "../../Typography/Headline";
 import Paragraph from "../../Typography/Paragraph";

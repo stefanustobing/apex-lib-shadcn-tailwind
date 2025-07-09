@@ -1,7 +1,8 @@
-import { ReactElement, ReactNode } from "react";
-import { Card, CardContent } from "../../Card";
-import { cn } from "../../../utility/utils";
 import { cva, type VariantProps } from "class-variance-authority";
+import { ReactElement, ReactNode } from "react";
+
+import { cn } from "../../../utility/utils";
+import { Card, CardContent } from "../../Card";
 
 const leaseCardStatusVariant = cva("shadow-none", {
   variants: {

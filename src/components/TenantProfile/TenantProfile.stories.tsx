@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
+
 import TenantProfile from ".";
 
 const meta: Meta<typeof TenantProfile> = {

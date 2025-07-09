@@ -1,7 +1,8 @@
+import { cva, VariantProps } from "class-variance-authority";
 import { ReactElement } from "react";
+
 import "./HorizontalProgressBar.css";
 import { cn } from "../../../utility/utils";
-import { cva, VariantProps } from "class-variance-authority";
 
 const horizontalProgressBarVariants = cva("", {
   variants: {

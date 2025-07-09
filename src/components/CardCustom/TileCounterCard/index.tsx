@@ -1,6 +1,7 @@
 import { ReactElement, ReactNode } from "react";
-import TileCard from "../TileCard";
+
 import Counter from "../../Counter";
+import TileCard from "../TileCard";
 
 type tileCounterCard = {
   avatar: ReactNode;

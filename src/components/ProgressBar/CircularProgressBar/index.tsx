@@ -1,7 +1,8 @@
+import { cva, VariantProps } from "class-variance-authority";
 import { FunctionComponent } from "react";
+
 import "./CircularProgressBar.css";
 import { cn } from "../../../utility/utils";
-import { cva, VariantProps } from "class-variance-authority";
 
 const circularProgressBarVariants = cva("", {
   variants: {

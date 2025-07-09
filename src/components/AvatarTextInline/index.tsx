@@ -1,8 +1,9 @@
 import { ReactElement, ReactNode } from "react";
+
+import { cn } from "../../utility/utils";
 import { Avatar, AvatarImage, AvatarFallback } from "../Avatar";
 import FlexContainer from "../Container/FlexContainer";
 import Paragraph from "../Typography/Paragraph";
-import { cn } from "../../utility/utils";
 
 type avatarTextInlineProps = {
   avatar: { type: "image" | "span"; src: ReactNode | string };

@@ -1,10 +1,10 @@
-import * as React from "react";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
-import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react";
 import { cva, type VariantProps } from "class-variance-authority";
+import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react";
+import * as React from "react";
+import { XCircle } from "react-feather";
 
 import { cn } from "../../utility/utils";
-import { XCircle } from "react-feather";
 
 function DropdownMenu({
   ...props
@@ -23,7 +23,7 @@ function DropdownMenuPortal({
 const DropdownMenuTrigger = React.forwardRef<
   HTMLButtonElement, // Ref type
   React.ComponentProps<typeof DropdownMenuPrimitive.Trigger> // Props type
->(({ ...props }, ref) => {
+>(function DropdownMenuTrigger({ ...props }, ref) {
   return (
     <DropdownMenuPrimitive.Trigger
       data-slot="dropdown-menu-trigger"
@@ -131,10 +131,20 @@ function DropdownMenuItem({
       {variant === "selected" && (
         <span
           className="inline-flex"
+          role="button"
+          tabIndex={0}
           onClick={(e) => {
             e.stopPropagation();
             onDeselect?.();
           }}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              e.stopPropagation();
+              onDeselect?.();
+            }
+          }}
+          aria-label="Remove selection"
         >
           <XCircle />
         </span>

@@ -1,4 +1,5 @@
 import { ReactElement } from "react";
+
 import { getCSSVar } from "../../utility/utils";
 
 type DotsProps = {

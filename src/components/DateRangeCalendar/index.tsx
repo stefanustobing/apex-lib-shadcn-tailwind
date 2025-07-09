@@ -1,7 +1,8 @@
-import * as React from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import * as React from "react";
 import { DateRange } from "react-day-picker";
 
+import { cn } from "../../utility/utils";
 import { Button } from "../Btn/Button";
 import {
   Select,
@@ -10,7 +11,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../Select/";
-import { cn } from "../../utility/utils";
 
 export interface DateRangeCalendarRef {
   getValue: () => DateRange | undefined;
@@ -194,6 +194,7 @@ const DateRangeCalendar = React.forwardRef<
         getLastMonthEnd,
         getStartOfYear,
         getEndOfYear,
+        presetRangesLabels,
       ],
     );
 
@@ -243,7 +244,7 @@ const DateRangeCalendar = React.forwardRef<
 
     const handlePresetClick = (range: DateRange) => {
       setSelectedDate(range);
-      setSelectedDateProp && setSelectedDateProp(range);
+      if (setSelectedDateProp) setSelectedDateProp(range);
       setHoveredPreset(null); // Clear hover state when clicking
       // Update current month/year to match the selected range
       if (range.from) {
@@ -284,18 +285,21 @@ const DateRangeCalendar = React.forwardRef<
       if (!selectedDate?.from || (selectedDate.from && selectedDate.to)) {
         // Start new selection
         setSelectedDate({ from: clickedDate, to: undefined });
-        setSelectedDateProp &&
+        if (setSelectedDateProp) {
           setSelectedDateProp({ from: clickedDate, to: undefined });
+        }
       } else {
         // Complete the range
         if (clickedDate < selectedDate.from) {
           setSelectedDate({ from: clickedDate, to: selectedDate.from });
-          setSelectedDateProp &&
+          if (setSelectedDateProp) {
             setSelectedDateProp({ from: clickedDate, to: selectedDate.from });
+          }
         } else {
           setSelectedDate({ from: selectedDate.from, to: clickedDate });
-          setSelectedDateProp &&
+          if (setSelectedDateProp) {
             setSelectedDateProp({ from: selectedDate.from, to: clickedDate });
+          }
         }
       }
     };

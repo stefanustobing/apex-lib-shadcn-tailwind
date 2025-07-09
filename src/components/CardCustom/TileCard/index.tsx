@@ -1,8 +1,9 @@
+import { cva, type VariantProps } from "class-variance-authority";
 import { ReactElement, ReactNode } from "react";
+
+import { cn } from "../../../utility/utils";
 import { Card, CardContent } from "../../Card";
 import LoadingDots from "../../Loading/LoadingDots";
-import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "../../../utility/utils";
 
 const tileCardVariants = cva("w-full h-full", {
   variants: {

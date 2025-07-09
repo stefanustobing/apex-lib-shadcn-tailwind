@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
-import ChkboxFilter from ".";
 import { User } from "react-feather";
+
+import ChkboxFilter from ".";
 
 const meta: Meta<typeof ChkboxFilter> = {
   title: "Mycomponent/ChkboxFilter",

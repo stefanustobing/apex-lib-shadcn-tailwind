@@ -1,11 +1,12 @@
 import { FunctionComponent, JSX, CSSProperties } from "react";
+import { Phone, Mail, User } from "react-feather";
+
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
 } from "../../../@/components/ui/avatar";
 import { Badge } from "../../../@/components/ui/badge";
-import { Phone, Mail, User } from "react-feather";
 
 export type TenantProfileProps = {
   name: string;
@@ -56,7 +57,7 @@ const TenantProfile: FunctionComponent<TenantProfileProps> = ({
         </div>
         {badge ? (
           <div className="flex flex-wrap justify-center md:justify-start">
-            {badge.map((item) => {
+            {badge.map((item, index) => {
               const colorHash = (color: string) => {
                 if (color === "red") return "#FF0000";
                 else if (color === "yellow") return "#FFF000";
@@ -64,6 +65,7 @@ const TenantProfile: FunctionComponent<TenantProfileProps> = ({
               };
               return (
                 <Badge
+                  key={index}
                   variant="outline"
                   className={`bg-[var(--colorHash)] rounded-full text-white px-[14px] py-[6px] mt-1 mr-1 border-0`}
                   style={

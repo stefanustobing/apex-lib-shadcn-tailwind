@@ -1,4 +1,5 @@
 import { ReactNode, forwardRef, ReactElement } from "react";
+
 import { Checkbox } from "../Checkbox";
 import { Label } from "../Label";
 
@@ -11,10 +12,10 @@ export type ChkboxAndLabelProps = {
 };
 
 const ChkboxAndLabel = forwardRef<HTMLDivElement, ChkboxAndLabelProps>(
-  (
+  function ChkboxAndLabel(
     { children, checked, onCheckedChange, id, disabled }: ChkboxAndLabelProps,
     ref,
-  ): ReactElement => {
+  ): ReactElement {
     return (
       <div ref={ref} className="flex items-center">
         <Checkbox

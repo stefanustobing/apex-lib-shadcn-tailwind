@@ -1,4 +1,5 @@
 import { ComponentProps, ReactNode, forwardRef } from "react";
+
 import { cn } from "../../../utility/utils";
 
 type IconFocusRingButtonProps = {
@@ -9,7 +10,7 @@ type IconFocusRingButtonProps = {
 const IconFocusRingButton = forwardRef<
   HTMLButtonElement,
   IconFocusRingButtonProps
->(({ className, ...props }, ref) => {
+>(function IconFocusRingButton({ className, ...props }, ref) {
   return (
     <button
       ref={ref}

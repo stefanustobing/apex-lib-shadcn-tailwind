@@ -1,7 +1,9 @@
 import { Meta, StoryObj } from "@storybook/react";
-import ChkboxFilterDropdown from "./index";
 import { Award } from "react-feather";
+
 import ChkboxFilter from "../../ChkboxFilter";
+
+import ChkboxFilterDropdown from "./index";
 
 const meta: Meta = {
   title: "Mycomponent/DropdownCustom/ChkboxFilterDropdown",
@@ -14,7 +16,12 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     triggerBtn: {
-      children: [<Award />, "Status"],
+      children: (
+        <>
+          <Award />
+          Status
+        </>
+      ),
       variant: "",
     },
     footerBtn: [

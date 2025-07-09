@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
+
 import Caption from "./index";
 
 const meta: Meta = {

@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
-import AvatarTextInline from ".";
 import { User } from "react-feather";
+
+import AvatarTextInline from ".";
 
 /**
  * AvatarTextInline component displays an avatar alongside a text paragraph.

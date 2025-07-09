@@ -1,10 +1,13 @@
 import { Meta, StoryObj } from "@storybook/react";
-import Page from ".";
+import { User, Briefcase, ChevronDown, GitBranch } from "react-feather";
+
+import { Button } from "../Btn/Button";
+import ActionBtnDropdown from "../DropdownCustom/ActionBtnDropdown";
 import PageHeader from "../PageHeader";
 import Headline from "../Typography/Headline";
-import ActionBtnDropdown from "../DropdownCustom/ActionBtnDropdown";
-import { Button } from "../Btn/Button";
-import { User, Briefcase, ChevronDown, GitBranch } from "react-feather";
+
+import Page from ".";
+
 
 const meta: Meta = {
   title: "Mycomponent/Page",

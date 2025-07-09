@@ -1,4 +1,5 @@
 import { ReactElement, ComponentProps } from "react";
+
 import { cn } from "../../utility/utils";
 
 type SearchFilterItemProps = {
@@ -28,7 +29,14 @@ const SearchFilterItem = ({
       aria-selected={isSelected ? "true" : "false"}
       aria-current={isFocused ? "true" : "false"}
       data-selected={isSelected ? "true" : "false"}
+      tabIndex={0}
       onClick={onClick}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onClick?.(e as any);
+        }
+      }}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       {...props}

@@ -1,12 +1,14 @@
 import { Meta, StoryObj } from "@storybook/react";
-import TileCard from ".";
+import { Home } from "react-feather";
+
+import DollarSign from "../../../Assets/custom-svg/DollarSign";
+import BulletPoint from "../../BulletPoint";
 import FlexContainer from "../../Container/FlexContainer";
 import SvgLogo from "../../FrameSquared";
-import { Home } from "react-feather";
-import DollarSign from "../../../Assets/custom-svg/DollarSign";
-import Text from "../../Typography/Text";
-import BulletPoint from "../../BulletPoint";
 import CircularProgressBar from "../../ProgressBar/CircularProgressBar";
+import Text from "../../Typography/Text";
+
+import TileCard from ".";
 
 const meta: Meta = {
   title: "Mycomponent/CustomCard/TileCard",
@@ -25,7 +27,7 @@ export const Default: Story = {
 export const Example1: Story = {
   args: {
     className: "p-[34px]",
-    children: [
+    children: (
       <FlexContainer className="gap-4">
         <SvgLogo variant="danger">
           <DollarSign />
@@ -38,16 +40,16 @@ export const Example1: Story = {
             Number of unspecified payments
           </Text>
         </FlexContainer>
-      </FlexContainer>,
-    ],
+      </FlexContainer>
+    ),
   },
 };
 
 export const Example2: Story = {
   args: {
-    children: [
+    children: (
       <FlexContainer className="flex-col items-start">
-        <FlexContainer className="gap-4 mb-6">
+        <FlexContainer className="gap-4 !mb-6">
           <SvgLogo variant="success">
             <Home />
           </SvgLogo>
@@ -61,28 +63,28 @@ export const Example2: Story = {
           </FlexContainer>
         </FlexContainer>
 
-        <FlexContainer className="mb-2">
-          <BulletPoint size="sm" className="mr-2" />
+        <FlexContainer className="!mb-2">
+          <BulletPoint size="sm" className="!mr-2" />
           <Text as="p" variant="gray" size="sm">
             Having new release <span className="font-semibold">1</span>
           </Text>
         </FlexContainer>
 
-        <FlexContainer className="mb-2">
-          <BulletPoint size="sm" className="mr-2" />
+        <FlexContainer className="!mb-2">
+          <BulletPoint size="sm" className="!mr-2" />
           <Text as="p" variant="gray" size="sm">
             Without new lease <span className="font-semibold">200</span>
           </Text>
         </FlexContainer>
-      </FlexContainer>,
-    ],
+      </FlexContainer>
+    ),
   },
 };
 
 export const Example3: Story = {
   args: {
     className: "p-[30px]",
-    children: [
+    children: (
       <FlexContainer className="gap-4">
         <CircularProgressBar variant="warning" value={97} />
         <FlexContainer className="flex-col items-start">
@@ -93,7 +95,7 @@ export const Example3: Story = {
             Total due
           </Text>
         </FlexContainer>
-      </FlexContainer>,
-    ],
+      </FlexContainer>
+    ),
   },
 };

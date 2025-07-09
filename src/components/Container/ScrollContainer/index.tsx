@@ -1,12 +1,13 @@
 import { ReactElement, ComponentProps, forwardRef } from "react";
-import { cn } from "../../utility/utils";
+
+import { cn } from "../../../utility/utils";
 
 type ScrollContainerProps = {
   className?: string;
 } & ComponentProps<"div">;
 
 const ScrollContainer = forwardRef<HTMLDivElement, ScrollContainerProps>(
-  ({ className, ...props }, ref): ReactElement => {
+  function ScrollContainer({ className, ...props }, ref): ReactElement {
     return (
       <div
         ref={ref}

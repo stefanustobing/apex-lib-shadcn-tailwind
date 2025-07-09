@@ -1,6 +1,8 @@
 import { Meta, StoryObj } from "@storybook/react";
-import FrameSquared from ".";
+
 import { KroneIcon } from "../../Assets/custom-svg";
+
+import FrameSquared from ".";
 
 const meta: Meta = {
   title: "Mycomponent/FrameSquared",

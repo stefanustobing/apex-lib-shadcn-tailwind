@@ -1,8 +1,9 @@
-import { ReactElement } from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { ReactElement } from "react";
 import { Doughnut } from "react-chartjs-2";
-import BulletPoint from "../../BulletPoint";
+
 import { getCSSVar } from "../../../utility/utils";
+import BulletPoint from "../../BulletPoint";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 

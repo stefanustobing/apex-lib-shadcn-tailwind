@@ -1,19 +1,20 @@
 import { FunctionComponent, ReactElement } from "react";
 import { Calendar, Briefcase, User } from "react-feather";
+
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
 } from "../../../@/components/ui/avatar";
 
-interface PropertyInfo {
+interface PropertyInfoProps {
   leaseDate?: string;
   account?: { avatarUrl?: string; accountName: string };
   manager?: { avatarUrl?: string; managerName: string };
   tenant?: { avatarUrl?: string; tenantName: string };
 }
 
-const PropertyInfo: FunctionComponent<PropertyInfo> = ({
+const PropertyInfo: FunctionComponent<PropertyInfoProps> = ({
   leaseDate,
   account,
   manager,

@@ -1,6 +1,3 @@
-import { ReactElement, ReactNode } from "react";
-/*import ListPoint from "../../ListPoint";*/
-
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -10,8 +7,10 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import { ReactElement, ReactNode } from "react";
 import { Bar } from "react-chartjs-2";
-/*import { getCSSVar } from "../../../utility/utils";*/
+
+/*import ListPoint from "../../ListPoint";*/
 import FlexContainer from "../../Container/FlexContainer";
 
 ChartJS.register(

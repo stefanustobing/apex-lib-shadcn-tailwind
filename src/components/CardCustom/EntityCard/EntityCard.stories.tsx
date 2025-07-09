@@ -1,9 +1,12 @@
 import { Meta, StoryObj } from "@storybook/react";
-import EntityCard from "./index";
-import PropertyProfile from "../../PropertyProfile";
-import PropertyInfo from "../../PropertyInfo";
-import ActionBtnDropdown from "../../DropdownCustom/ActionBtnDropdown";
 import { MoreHorizontal } from "react-feather";
+
+import ActionBtnDropdown from "../../DropdownCustom/ActionBtnDropdown";
+import PropertyInfo from "../../PropertyInfo";
+import PropertyProfile from "../../PropertyProfile";
+
+import EntityCard from "./index";
+
 
 const meta: Meta<typeof EntityCard> = {
   title: "Mycomponent/CustomCard/EntityCard",

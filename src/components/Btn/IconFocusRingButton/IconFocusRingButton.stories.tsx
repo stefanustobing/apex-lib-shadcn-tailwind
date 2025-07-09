@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
-import IconFocusRingButton from "./index";
 import { MoreHorizontal, X } from "react-feather";
+
+import IconFocusRingButton from "./index";
 
 const meta: Meta<typeof IconFocusRingButton> = {
   title: "Mycomponent/Btn/IconFocusRingButton",

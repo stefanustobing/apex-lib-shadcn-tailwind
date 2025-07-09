@@ -1,10 +1,11 @@
+import { cva, type VariantProps } from "class-variance-authority";
 import {
   FunctionComponent,
   ReactElement,
   ComponentProps,
   ReactNode,
 } from "react";
-import { cva, type VariantProps } from "class-variance-authority";
+
 import { cn } from "../../../utility/utils";
 
 const justifyContainerVariants = cva(

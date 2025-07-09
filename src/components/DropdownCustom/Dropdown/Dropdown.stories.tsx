@@ -1,7 +1,9 @@
 import { Meta, StoryObj } from "@storybook/react";
-import Dropdown from ".";
-import FilterButton from "../../Btn/FilterButton";
 import { User, ChevronDown } from "react-feather";
+
+import FilterButton from "../../Btn/FilterButton";
+
+import Dropdown from ".";
 
 const meta: Meta = {
   title: "Mycomponent/DropdownCustom/Dropdown",

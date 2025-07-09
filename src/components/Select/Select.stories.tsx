@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
+
 import {
   Select,
   SelectTrigger,
@@ -31,15 +32,17 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    children: [
-      <SelectTrigger>
-        <SelectValue placeholder="Select a fruit" />
-      </SelectTrigger>,
-      <SelectContent>
-        <SelectItem value="apple">Apple</SelectItem>
-        <SelectItem value="banana">Banana</SelectItem>
-        <SelectItem value="grapes">Grapes</SelectItem>
-      </SelectContent>,
-    ],
+    children: (
+      <>
+        <SelectTrigger>
+          <SelectValue placeholder="Select a fruit" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem value="apple">Apple</SelectItem>
+          <SelectItem value="banana">Banana</SelectItem>
+          <SelectItem value="grapes">Grapes</SelectItem>
+        </SelectContent>
+      </>
+    ),
   },
 };

@@ -1,3 +1,4 @@
+import { cva, VariantProps } from "class-variance-authority";
 import {
   ReactElement,
   ReactNode,
@@ -5,8 +6,8 @@ import {
   JSX,
   createElement,
 } from "react";
+
 import { cn } from "../../../utility/utils";
-import { cva, VariantProps } from "class-variance-authority";
 
 const textVariants = cva("font-poppins flex items-center gap-1", {
   variants: {

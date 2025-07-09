@@ -1,10 +1,10 @@
 import { FunctionComponent, ReactElement, ReactNode } from "react";
-import { Card } from "../../Card";
-import MetricPanelGrid from "../../MetricPanelGrid";
-import PropertyProfile from "../../PropertyProfile";
-import ActionBtnDropdown from "../../DropdownCustom/ActionBtnDropdown";
 import { MoreHorizontal } from "react-feather";
+
 import useMediaQuery from "../../../utility/customHook/useMediaQuery";
+import IconFocusRingButton from "../../Btn/IconFocusRingButton";
+import { Card } from "../../Card";
+import PropertyProfile from "../../PropertyProfile";
 import { Separator } from "../../Separator";
 
 type EntityCardProps = {
@@ -14,13 +14,12 @@ type EntityCardProps = {
 };
 
 const EntityCard: FunctionComponent<EntityCardProps> = ({
-  header,
   footer,
 }): ReactElement => {
   const min768 = useMediaQuery("(min-width: 768px)");
   return (
     <Card>
-      <div className="p-[30px]">
+      <div className="!p-[30px]">
         <div className="flex flex-row">
           <div className="w-10/12">
             <PropertyProfile
@@ -60,10 +59,13 @@ const EntityCard: FunctionComponent<EntityCardProps> = ({
                 "Add Services",
               ]}
             />*/}
+            <IconFocusRingButton>
+              <MoreHorizontal />
+            </IconFocusRingButton>
           </div>
         </div>
         This is content
-        <Separator className="ml-[-30px] mr-[-30px]" />
+        <Separator className="!ml-[-30px] !mr-[-30px]" />
         {footer}
       </div>
     </Card>

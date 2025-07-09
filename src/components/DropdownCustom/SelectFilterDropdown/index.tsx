@@ -7,13 +7,14 @@ import {
   ChangeEvent,
   UIEvent,
 } from "react";
-import Dropdown from "../Dropdown";
-import FilterButton from "../../Btn/FilterButton";
-import LoadingDots from "../../Loading/LoadingDots";
-import { DropdownMenuItem } from "../../Dropdown";
-import ScrollContainer from "../../ScrollContainer";
-import { Input } from "../../Input";
 import { XCircle } from "react-feather";
+
+import FilterButton from "../../Btn/FilterButton";
+import ScrollContainer from "../../Container/ScrollContainer";
+import { DropdownMenuItem } from "../../Dropdown";
+import { Input } from "../../Input";
+import LoadingDots from "../../Loading/LoadingDots";
+import Dropdown from "../Dropdown";
 
 type selectFilterDropdownProps = {
   btnLabel: ReactNode;
@@ -86,17 +87,19 @@ const SelectFilterDropdown = ({
           className="w-full focus-visible:ring-0 border-none shadow-none rounded-none !pl-[2.2rem] !py-2 !pr-[1rem] text-[var(--gray)] placeholder:text-[var(--mute-color)] md:text-base"
         />
         {searchTerm && (
-          <span
-            className="!mr-5 inline-flex [&_svg]:size-5 [&_svg]:cursor-pointer"
+          <button
+            type="button"
+            className="!mr-5 inline-flex [&_svg]:size-5 [&_svg]:cursor-pointer bg-transparent"
             onClick={() => {
               setSearchTerm("");
               onInputChange?.({
                 target: { value: "" },
               } as ChangeEvent<HTMLInputElement>);
             }}
+            aria-label="Clear search"
           >
             <XCircle />
-          </span>
+          </button>
         )}
       </div>
 

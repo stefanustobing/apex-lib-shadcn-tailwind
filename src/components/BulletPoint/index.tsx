@@ -1,6 +1,7 @@
-import { ReactElement } from "react";
-import { cn } from "../../utility/utils";
 import { cva, VariantProps } from "class-variance-authority";
+import { ReactElement } from "react";
+
+import { cn } from "../../utility/utils";
 
 const bulletPointVariants = cva("rounded-full", {
   variants: {

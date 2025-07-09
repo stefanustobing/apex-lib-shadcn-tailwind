@@ -1,8 +1,9 @@
 import { ReactElement } from "react";
-import FlexContainer from "../Container/FlexContainer";
 import { Menu } from "react-feather";
-import { Switch } from "../Switch";
+
+import FlexContainer from "../Container/FlexContainer";
 import JustifyContainer from "../Container/JustifyContainer";
+import { Switch } from "../Switch";
 
 const SortableList = (): ReactElement => {
   return (

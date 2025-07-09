@@ -1,11 +1,12 @@
 import { FunctionComponent, JSX, CSSProperties } from "react";
+import { Home } from "react-feather";
+
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
 } from "../../../@/components/ui/avatar";
 import { Badge } from "../../../@/components/ui/badge";
-import { Home } from "react-feather";
 
 type PropertyProfileProps = {
   address: string;
@@ -32,7 +33,7 @@ const PropertyProfile: FunctionComponent<PropertyProfileProps> = ({
           </AvatarFallback>
         </Avatar>
       </div>
-      <div className="ml-2 w-[80%] mt-4 md:mt-0">
+      <div className="!ml-2 w-[80%] mt-4 md:mt-0">
         <div className="mb-1 flex justify-center md:justify-start">
           <a href={detailInfoUrl ? detailInfoUrl : "#"}>
             <h6 className="text-sm md:text-base text-center text-teal-500 font-poppins md:text-base">
@@ -46,8 +47,8 @@ const PropertyProfile: FunctionComponent<PropertyProfileProps> = ({
           </p>
         </div>
         {badge ? (
-          <div className="flex flex-wrap mt-1 justify-center md:justify-start">
-            {badge.map((item) => {
+          <div className="flex flex-wrap !mt-1 justify-center md:justify-start">
+            {badge.map((item, index) => {
               const colorHash = (color: string) => {
                 if (color === "red") return "#FF0000";
                 else if (color === "yellow") return "#FFF000";
@@ -56,8 +57,9 @@ const PropertyProfile: FunctionComponent<PropertyProfileProps> = ({
               };
               return (
                 <Badge
+                  key={index}
                   variant="outline"
-                  className={`bg-[var(--colorHash)] rounded-full text-white px-[14px] py-[6px] mt-1 mr-1 border-0`}
+                  className={`bg-[var(--colorHash)] rounded-full text-white !px-[14px] !py-[6px] !mt-1 !mr-1 border-0`}
                   style={
                     {
                       "--colorHash": `${colorHash(item.color)}`,

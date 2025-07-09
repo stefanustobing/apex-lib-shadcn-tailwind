@@ -1,7 +1,8 @@
+import { cva } from "class-variance-authority";
 import { ReactElement } from "react";
+
 import { getCSSVar } from "../../../utility/utils";
 import { cn } from "../../../utility/utils";
-import { cva } from "class-variance-authority";
 
 const loadingVariants = cva("", {
   variants: {

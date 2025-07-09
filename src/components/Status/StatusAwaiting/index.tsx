@@ -1,8 +1,9 @@
 import { ReactElement, ReactNode } from "react";
+
 import { cn } from "../../../utility/utils";
+import FlexContainer from "../../Container/FlexContainer";
 import Headline from "../../Typography/Headline";
 import Paragraph from "../../Typography/Paragraph";
-import FlexContainer from "../../Container/FlexContainer";
 
 type StatusLeaseProps = {
   counts?: ReactNode;

@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
+
 import LoadingSpin from ".";
 
 const meta: Meta = {

@@ -1,6 +1,8 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { Avatar, AvatarImage, AvatarFallback } from ".";
+
 import { KroneIcon } from "../../Assets/custom-svg";
+
+import { Avatar, AvatarImage, AvatarFallback } from ".";
 
 const meta: Meta<typeof Avatar> = {
   title: "Mycomponent/Avatar",
@@ -15,10 +17,12 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    children: [
-      <AvatarImage src="https://github.com/shadcn.png" alt="User Avatar" />,
-      <AvatarFallback>SLT</AvatarFallback>,
-    ],
+    children: (
+      <>
+        <AvatarImage src="https://github.com/shadcn.png" alt="User Avatar" />
+        <AvatarFallback>SLT</AvatarFallback>
+      </>
+    ),
   },
 };
 
@@ -29,10 +33,10 @@ export const squareAvatar: Story = {
   args: {
     shape: "square",
     size: "s60px",
-    children: [
+    children: (
       <AvatarFallback variant="danger">
         <KroneIcon />
-      </AvatarFallback>,
-    ],
+      </AvatarFallback>
+    ),
   },
 };

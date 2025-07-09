@@ -1,9 +1,10 @@
 import { ReactElement, ReactNode } from "react";
+
+import { cn } from "../../../utility/utils";
 import { Card, CardHeader, CardContent } from "../../Card";
 import JustifyContainer from "../../Container/JustifyContainer";
-import { Separator } from "../../Separator";
 import LoadingDots from "../../Loading/LoadingDots";
-import { cn } from "../../../utility/utils";
+import { Separator } from "../../Separator";
 
 type DashboardCardProps = {
   titleLeft: ReactNode;

@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { XCircle } from "react-feather";
+
 import { cn } from "../../utility/utils";
 
 /* ---------------------------------- Types --------------------------------- */
@@ -43,7 +44,8 @@ function useSearchFilterContext() {
 }
 
 /* ----------------------------- Root Component ----------------------------- */
-interface SearchFilterProps extends React.HTMLAttributes<HTMLDivElement> {
+interface SearchFilterProps
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, "onSelect"> {
   multiselect?: boolean;
   onSelect?: (value: string, text: string) => void;
   onDeselect?: (value: string, text: string) => void;
@@ -134,7 +136,6 @@ const SearchFilter = React.forwardRef<HTMLDivElement, SearchFilterProps>(
         <div
           ref={ref}
           className={cn("relative w-full", className)}
-          role="combobox"
           aria-expanded="true"
           aria-haspopup="listbox"
           {...props}
@@ -179,7 +180,7 @@ const SearchFilterInput = React.forwardRef<
         const currentIndex = current ? visibleItems.indexOf(current) : -1;
         const nextIndex =
           currentIndex >= visibleItems.length - 1 ? 0 : currentIndex + 1;
-        return visibleItems[nextIndex];
+        return visibleItems[nextIndex] || null;
       });
     } else if (e.key === "ArrowUp") {
       e.preventDefault();
@@ -187,9 +188,12 @@ const SearchFilterInput = React.forwardRef<
         const currentIndex = current ? visibleItems.indexOf(current) : 0;
         const prevIndex =
           currentIndex <= 0 ? visibleItems.length - 1 : currentIndex - 1;
-        return visibleItems[prevIndex];
+        return visibleItems[prevIndex] || null;
       });
-    } else if (e.key === "Enter" && e.currentTarget.value === "") {
+    } else if (
+      e.key === "Enter" &&
+      (e.currentTarget as HTMLInputElement).value === ""
+    ) {
       e.preventDefault();
       const focusedElement = document.querySelector(
         '[data-focused="true"]',
@@ -258,7 +262,7 @@ interface SearchFilterItemProps extends React.HTMLAttributes<HTMLDivElement> {
 const SearchFilterItem = React.forwardRef<
   HTMLDivElement,
   SearchFilterItemProps
->(({ value, text, defaultSelected = false, className, ...props }, ref) => {
+>(({ value, text, defaultSelected = false, className, ...props }, _) => {
   const {
     searchTerm,
     selectedValues,
@@ -277,14 +281,15 @@ const SearchFilterItem = React.forwardRef<
   const innerRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
+    const currentItemsRef = itemsRef.current;
     if (innerRef.current) {
-      itemsRef.current.set(value, innerRef.current);
+      currentItemsRef.set(value, innerRef.current);
     }
 
     registerItem(value);
 
     return () => {
-      itemsRef.current.delete(value);
+      currentItemsRef.delete(value);
       unregisterItem(value);
     };
   }, [value, registerItem, unregisterItem, itemsRef]);
@@ -361,6 +366,7 @@ const SearchFilterItem = React.forwardRef<
     <div
       ref={innerRef}
       role="option"
+      tabIndex={0}
       id={`option-${value}`}
       aria-selected={isSelected ? "true" : "false"}
       aria-current={isFocused ? "true" : "false"}
@@ -375,6 +381,14 @@ const SearchFilterItem = React.forwardRef<
         className,
       )}
       onClick={handleItemClick}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          handleItemClick();
+        } else if (e.key === "Escape") {
+          setFocusedValue(null);
+        }
+      }}
       onMouseEnter={() => setFocusedValue(value)}
       onMouseLeave={() => setFocusedValue(null)}
       {...props}

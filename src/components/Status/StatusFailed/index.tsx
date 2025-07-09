@@ -1,8 +1,9 @@
 import { ReactElement, ReactNode } from "react";
-import JustifyContainer from "../../Container/JustifyContainer";
-import Paragraph from "../../Typography/Paragraph";
-import Headline from "../../Typography/Headline";
+
 import { cn } from "../../../utility/utils";
+import JustifyContainer from "../../Container/JustifyContainer";
+import Headline from "../../Typography/Headline";
+import Paragraph from "../../Typography/Paragraph";
 
 type statusFailedProps = {
   failedType: ReactNode;

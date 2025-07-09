@@ -1,8 +1,9 @@
 import { ReactElement, ReactNode } from "react";
+
+import { Avatar, AvatarFallback } from "../Avatar";
 import FlexContainer from "../Container/FlexContainer";
 /*import FrameSquared from "../FrameSquared";*/
 import Counter from "../Counter";
-import { Avatar, AvatarFallback } from "../Avatar";
 
 type counterWithAvatarProps = {
   avatar: ReactNode;

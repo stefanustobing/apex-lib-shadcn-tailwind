@@ -1,7 +1,8 @@
 import { ReactElement, ReactNode } from "react";
+
 import FlexContainer from "../Container/FlexContainer";
-import CircularProgressBar from "../ProgressBar/CircularProgressBar";
 import Counter from "../Counter";
+import CircularProgressBar from "../ProgressBar/CircularProgressBar";
 
 type counterWithAvatarProps = {
   variant?:

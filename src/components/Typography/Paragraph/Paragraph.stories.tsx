@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
+
 import Paragraph from "./index";
 
 const meta: Meta = {

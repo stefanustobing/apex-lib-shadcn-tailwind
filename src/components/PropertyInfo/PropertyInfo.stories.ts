@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
+
 import PropertyInfo from ".";
 
 const meta: Meta<typeof PropertyInfo> = {

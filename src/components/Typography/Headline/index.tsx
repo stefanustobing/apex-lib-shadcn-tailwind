@@ -1,4 +1,5 @@
 import { ReactElement, ReactNode } from "react";
+
 import Text from "../Text";
 
 type HeadlineProps = {

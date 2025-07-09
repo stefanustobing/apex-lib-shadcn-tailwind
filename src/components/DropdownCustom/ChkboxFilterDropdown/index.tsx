@@ -1,14 +1,15 @@
 import { FunctionComponent, ReactElement } from "react";
-import FilterButton, { FilterButtonProps } from "../../Btn/FilterButton";
+
 import { Button, ButtonProps } from "../../Btn/Button";
+import FilterButton, { FilterButtonProps } from "../../Btn/FilterButton";
+import ChkboxFilter from "../../ChkboxFilter";
+import JustifyContainer from "../../Container/JustifyContainer";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "../../Dropdown";
-import JustifyContainer from "../../Container/JustifyContainer";
-import ChkboxFilter from "../../ChkboxFilter";
 
 type ChkboxFilterDropdownProps = {
   triggerBtn: FilterButtonProps;

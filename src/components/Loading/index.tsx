@@ -1,8 +1,10 @@
-import { ReactElement } from "react";
 import { cva, VariantProps } from "class-variance-authority";
+import { ReactElement } from "react";
+
 import { cn } from "../../utility/utils";
-import Spinner from "./Spinner";
+
 import Dots from "./Dots";
+import Spinner from "./Spinner";
 
 const loadingVariants = cva("", {
   variants: {

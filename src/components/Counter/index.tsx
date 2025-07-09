@@ -1,9 +1,10 @@
-import { ReactElement, ReactNode } from "react";
-import FlexContainer from "../Container/FlexContainer";
-import Subheadline from "../Typography/Subheadline";
-import Paragraph from "../Typography/Paragraph";
 import { cva, type VariantProps } from "class-variance-authority";
+import { ReactElement, ReactNode } from "react";
+
 import { cn } from "../../utility/utils";
+import FlexContainer from "../Container/FlexContainer";
+import Paragraph from "../Typography/Paragraph";
+import Subheadline from "../Typography/Subheadline";
 
 const counterVariants = cva("w-auto, items-start", {
   variants: {

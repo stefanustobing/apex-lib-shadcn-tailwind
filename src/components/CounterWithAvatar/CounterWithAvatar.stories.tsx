@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
-import CounterWithAvatar from ".";
 import { Home } from "react-feather";
+
+import CounterWithAvatar from ".";
 
 const meta: Meta = {
   title: "Mycomponent/CounterWithAvatar",

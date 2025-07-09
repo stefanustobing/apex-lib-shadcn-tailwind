@@ -6,9 +6,10 @@ import {
   KeyboardEvent,
   ReactNode,
 } from "react";
-import { Input } from "../Input";
 import { XCircle } from "react-feather";
-import ScrollContainer from "../ScrollContainer";
+
+import ScrollContainer from "../Container/ScrollContainer";
+import { Input } from "../Input";
 
 interface Options {
   text: string;
@@ -56,7 +57,7 @@ export default function SearchFilter({
     if (initialSelectedOption.length > 0) {
       setSelectedIndex((prev) => [...prev, ...initialSelectedOption]);
     }
-  }, []);
+  }, [data, multiselect]);
 
   useEffect(() => {
     if (searchTerm === "") {
@@ -80,10 +81,11 @@ export default function SearchFilter({
       onSelect(item.text);
     }
     if (multiselect) {
-      !selectedIndex.includes(index) &&
+      if (!selectedIndex.includes(index)) {
         setSelectedIndex((prev) => [...prev, index]);
+      }
     } else {
-      !selectedIndex.includes(index) && setSelectedIndex([index]);
+      if (!selectedIndex.includes(index)) setSelectedIndex([index]);
     }
     /*setFocusedIndex(index);*/
     /*setSearchTerm(item.name);*/
@@ -119,7 +121,6 @@ export default function SearchFilter({
   return (
     <div
       className="relative w-full"
-      role="combobox"
       aria-expanded="true"
       aria-haspopup="listbox"
     >
@@ -157,8 +158,15 @@ export default function SearchFilter({
                 aria-selected={isSelected ? "true" : "false"}
                 aria-current={isFocused ? "true" : "false"}
                 data-selected={isSelected ? "true" : "false"}
+                tabIndex={0}
                 className={`!px-[30px] !py-[12px] cursor-pointer ${isFocused ? "bg-[var(--base-color)] [&>*]:text-[var(--sub-primary-color)]" : ""} ${isSelected ? "bg-[var(--base-color)] [&>*]:text-[var(--sub-primary-color)]" : ""} flex justify-between items-center font-poppins`}
                 onClick={() => handleItemClick(item, index)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    handleItemClick(item, index);
+                  }
+                }}
                 onMouseEnter={() => handleItemMouseEnter(index)}
                 onMouseLeave={handleItemMouseLeave}
               >

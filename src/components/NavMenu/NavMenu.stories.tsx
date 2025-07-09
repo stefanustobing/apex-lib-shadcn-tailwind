@@ -1,9 +1,11 @@
 import { Meta, StoryObj } from "@storybook/react";
-import NavMenu from "./index";
-import { Separator } from "../Separator";
+
 import { SortIcon } from "../../Assets/custom-svg";
 import IconFocusRingButton from "../Btn/IconFocusRingButton";
 import ActionBtnDropdown from "../DropdownCustom/ActionBtnDropdown";
+import { Separator } from "../Separator";
+
+import NavMenu from "./index";
 
 const meta: Meta = {
   title: "Mycomponent/NavMenu",
@@ -83,16 +85,18 @@ export const Example2: Story = {
   args: {
     ...Example1.args,
     defaultSelectedItem: 0,
-    options: [
-      <Separator orientation="vertical" className="!mr-2 bg-[var(--gray)]" />,
-      <ActionBtnDropdown
-        trigger={
-          <IconFocusRingButton>
-            <SortIcon />
-          </IconFocusRingButton>
-        }
-        items={[{ name: "Created Date" }, { name: "Due Date" }]}
-      />,
-    ],
+    options: (
+      <>
+        <Separator orientation="vertical" className="!mr-2 bg-[var(--gray)]" />
+        <ActionBtnDropdown
+          trigger={
+            <IconFocusRingButton>
+              <SortIcon />
+            </IconFocusRingButton>
+          }
+          items={[{ name: "Created Date" }, { name: "Due Date" }]}
+        />
+      </>
+    ),
   },
 };

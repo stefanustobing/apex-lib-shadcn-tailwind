@@ -1,14 +1,13 @@
 import { ReactElement, useState, useRef, ReactNode } from "react";
-import Dropdown from "../Dropdown";
-import { Calendar } from "react-feather";
-import FilterButton from "../../Btn/FilterButton";
+import { DateRange } from "react-day-picker";
+
+import { Button } from "../../Btn/Button";
+import JustifyContainer from "../../Container/JustifyContainer";
 import DateRangeCalendar, {
   DateRangeCalendarRef,
 } from "../../DateRangeCalendar";
-import JustifyContainer from "../../Container/JustifyContainer";
-import { Button } from "../../Btn/Button";
 import { DropdownMenuSeparator } from "../../Dropdown";
-import { DateRange } from "react-day-picker";
+import Dropdown from "../Dropdown";
 
 type DateRangeFilterDropdownProps = {
   btnLabel: ReactNode;
@@ -23,7 +22,6 @@ type DateRangeFilterDropdownProps = {
 
 const DateRangeFilterDropdown = ({
   btnLabel,
-  btnVariant,
   presetRangesLabels,
   selectedDateRange,
   footerBtnClearLabel,
@@ -31,22 +29,18 @@ const DateRangeFilterDropdown = ({
   onClear,
   onApply,
 }: DateRangeFilterDropdownProps): ReactElement => {
-  const [selectedDate, setSelectedDate] = useState<DateRange | undefined>();
+  const [selectedDate, setSelectedDate] = useState<DateRange | undefined>(
+    selectedDateRange ? selectedDateRange : undefined,
+  );
   const dateRangeCalendarRef = useRef<DateRangeCalendarRef>(null);
   return (
-    <Dropdown
-      trigger={
-        <FilterButton className="data-[state='open']:text-[var(--sub-primary-color)]">
-          <Calendar /> Create Date
-        </FilterButton>
-      }
-      asChild
-    >
+    <Dropdown trigger={btnLabel} asChild>
       <DateRangeCalendar
         selectedDateProp={selectedDate}
         setSelectedDateProp={setSelectedDate}
         className="!mb-[5px]"
         ref={dateRangeCalendarRef}
+        presetRangesLabels={presetRangesLabels}
         /*key={String(selectedDate?.from) || 1}*/
       />
       <DropdownMenuSeparator />
@@ -68,11 +62,23 @@ const DateRangeFilterDropdown = ({
                 new Date().getDate(),
               ),
             });
+            if (onClear) {
+              onClear();
+            }
           }}
         >
-          Clear
+          {footerBtnClearLabel}
         </Button>
-        <Button variant="dark">Apply</Button>
+        <Button
+          variant="dark"
+          onClick={() => {
+            if (onApply && selectedDate) {
+              onApply(selectedDate);
+            }
+          }}
+        >
+          {footerBtnApplyLabel}
+        </Button>
       </JustifyContainer>
     </Dropdown>
   );

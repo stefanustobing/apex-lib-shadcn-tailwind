@@ -1,8 +1,9 @@
 import { ReactElement } from "react";
+
+import { cn } from "../../utility/utils";
 import BulletPoint from "../BulletPoint";
 import FlexContainer from "../Container/FlexContainer";
 import Text from "../Typography/Text";
-import { cn } from "../../utility/utils";
 
 type ListPointProps = {
   children: string;
